@@ -9,17 +9,17 @@ export const Navigation = async ({
   const navigation = await client.getSingle('navigation');
 
   return (
-    <nav className="font-bold text-xl self-center">
-      <ul>
+    <nav className="font-bold text-xl self-center w-screen">
+      <div className="flex justify-evenly	">
         {isFilled.group(navigation.data.menu_items) &&
           navigation.data.menu_items.map((item) => {
             return (
-              <li key={item.label}>
+              <div key={item.label} className="inline-block	">
                 <PrismicLink field={item.link}>{item.label}</PrismicLink>
-              </li>
+              </div>
             );
           })}
-      </ul>
+      </div>
     </nav>
   );
 };

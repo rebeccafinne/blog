@@ -12,6 +12,8 @@ import { PrismicNextImage } from '@prismicio/next';
 import { PostCard } from '@/components/PostCard';
 import { RichText } from '@/components/RichText';
 import { Navigation } from '@/components/Navigation';
+import { Comments } from '@/components/Comments';
+import { supabase } from '@/lib/supabase/server';
 
 type Params = { uid: string };
 
@@ -52,6 +54,13 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID('blog_post', params.uid)
     .catch(() => notFound());
 
+  const comments = await supabase
+    .from('comments')
+    .select('post_id, nickname, payload, created_at, id, published, email')
+    .eq('post_id', params.uid)
+    .eq('published', true)
+    .order('created_at', { ascending: true });
+
   /**
    * Fetch all of the blog posts in Prismic (max 2), excluding the current one, and ordered by publication date.
    *
@@ -90,6 +99,7 @@ export default async function Page({ params }: { params: Params }) {
           </div>
         </div>
         <PrismicNextImage
+          fallbackAlt=""
           field={featured_image}
           sizes="100vw"
           className="w-full max-w-3xl max-h-96 rounded-xl object-cover"
@@ -98,6 +108,8 @@ export default async function Page({ params }: { params: Params }) {
 
       {/* Display the content of the blog post */}
       <SliceZone slices={slices} components={components} />
+
+      <Comments id={params.uid} uid={params.uid} comments={comments.data} />
 
       {/* Display the Recommended Posts section using the posts we requested earlier */}
       <h2 className="font-bold text-3xl">Recommended Posts</h2>

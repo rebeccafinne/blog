@@ -10,7 +10,7 @@
         "type": "Group",
         "config": {
           "label": "Menu Items",
-          "repeat": false,
+          "repeat": true,
           "fields": {
             "label": {
               "type": "Text",

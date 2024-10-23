@@ -43,8 +43,6 @@ export default async function Index() {
     ],
   });
 
-  console.log('in homepage!!', posts[1]);
-
   return (
     <>
       <Navigation client={client} />

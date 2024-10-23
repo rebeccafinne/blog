@@ -16,14 +16,15 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <section
-      className="flex flex-col gap-4 max-w-3xl w-full"
+      className="flex items-center flex-col gap-4 max-w-3xl w-full"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       <PrismicNextImage
+        fallbackAlt=""
         field={slice.primary.image}
         sizes="100vw"
-        className="w-full max-w-[100px] max-h-full rounded-md object-cover"
+        className="w-full max-w-[250px] max-h-[250px] rounded-full object-cover"
       />
       <div className="flex flex-col gap-2">
         <h1 className="font-bold text-4xl">
