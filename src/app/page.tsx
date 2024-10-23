@@ -55,8 +55,6 @@ export default async function Index() {
           <PostCard key={post.id} post={post} />
         ))}
       </section>
-
-      <Navigation client={client} />
     </>
   );
 }

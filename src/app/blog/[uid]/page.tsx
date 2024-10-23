@@ -118,8 +118,6 @@ export default async function Page({ params }: { params: Params }) {
           <PostCard key={post.id} post={post} />
         ))}
       </section>
-
-      <Navigation client={client} />
     </div>
   );
 }

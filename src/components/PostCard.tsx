@@ -22,7 +22,7 @@ export const PostCard = ({
       />
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
-          <p className="text-sm opacity-75 text-slate-700 border-b-2 w-min pb-1">
+          <p className="text-sm opacity-75 text-slate-700 border-b-2 pb-1">
             {new Date(data?.publication_date || '').toLocaleDateString()}
           </p>
           <div className="hover:opacity-75 duration-300 ease-in-out transition-all">
