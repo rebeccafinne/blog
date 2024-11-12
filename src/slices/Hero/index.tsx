@@ -30,7 +30,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <h1 className="font-bold text-4xl">
           <PrismicText field={slice.primary.title} />
         </h1>
-        <RichText field={slice.primary.description} />
+        <div className="text-center	">
+          <RichText field={slice.primary.description} />
+        </div>
       </div>
     </section>
   );

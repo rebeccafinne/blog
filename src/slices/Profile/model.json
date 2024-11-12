@@ -1,0 +1,36 @@
+{
+  "id": "profile",
+  "type": "SharedSlice",
+  "name": "Profile",
+  "description": "Profile",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "profile_picture": {
+          "type": "Image",
+          "config": {
+            "label": "profile_picture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "profile_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "profile_text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

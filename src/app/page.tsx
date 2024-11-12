@@ -7,6 +7,7 @@ import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { Navigation } from '@/components/Navigation';
 import { PostCard } from '@/components/PostCard';
+import { Socials } from '@/components/Socials';
 
 // This component renders your homepage.
 //
@@ -48,6 +49,7 @@ export default async function Index() {
       <Navigation client={client} />
 
       <SliceZone slices={home.data.slices} components={components} />
+      <Socials />
 
       {/* Map over each of the blog posts created and display a `PostCard` for it */}
       <section className="grid grid-cols-1 gap-8 max-w-3xl w-full">

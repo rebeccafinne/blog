@@ -170,7 +170,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice = ProfileSlice | HeroSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -320,6 +320,61 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Profile → Default → Primary*
+ */
+export interface ProfileSliceDefaultPrimary {
+  /**
+   * profile_picture field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_picture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  profile_picture: prismic.ImageField<never>;
+
+  /**
+   * profile_text field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  profile_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Profile Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProfileSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProfileSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Profile*
+ */
+type ProfileSliceVariation = ProfileSliceDefault;
+
+/**
+ * Profile Shared Slice
+ *
+ * - **API ID**: `profile`
+ * - **Description**: Profile
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProfileSlice = prismic.SharedSlice<
+  "profile",
+  ProfileSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -399,6 +454,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ProfileSlice,
+      ProfileSliceDefaultPrimary,
+      ProfileSliceVariation,
+      ProfileSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
