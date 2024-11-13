@@ -79,9 +79,11 @@ export default async function Page({ params }: { params: Params }) {
   const { slices, title, publication_date, description, featured_image } =
     page.data;
 
+  const navigation = await client.getSingle('navigation');
+
   return (
     <div className="flex flex-col gap-12 w-full max-w-3xl">
-      <Navigation client={client} />
+      <Navigation navigation={navigation} />
 
       {/* Display the "hero" section of the blog post */}
       <section className="flex flex-col gap-12">

@@ -7,11 +7,11 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 type BlogPostDocumentDataSlicesSlice = RichTextSlice;
 
 /**
- * Content for Blog Post documents
+ * Content for Blog documents
  */
 interface BlogPostDocumentData {
   /**
-   * Title field in *Blog Post*
+   * Title field in *Blog*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -22,7 +22,7 @@ interface BlogPostDocumentData {
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Blog Post*
+   * Description field in *Blog*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -33,7 +33,7 @@ interface BlogPostDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * Featured Image field in *Blog Post*
+   * Featured Image field in *Blog*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -44,7 +44,7 @@ interface BlogPostDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * Publication Date field in *Blog Post*
+   * publication_date field in *Blog*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -55,7 +55,7 @@ interface BlogPostDocumentData {
   publication_date: prismic.DateField;
 
   /**
-   * Slice Zone field in *Blog Post*
+   * Slice Zone field in *Blog*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -64,7 +64,7 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice> /**
-   * Meta Title field in *Blog Post*
+   * Meta Title field in *Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -75,7 +75,7 @@ interface BlogPostDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Blog Post*
+   * Meta Description field in *Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -86,7 +86,7 @@ interface BlogPostDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Blog Post*
+   * Meta Image field in *Blog*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -98,7 +98,7 @@ interface BlogPostDocumentData {
 }
 
 /**
- * Blog Post document from Prismic
+ * Blog document from Prismic
  *
  * - **API ID**: `blog_post`
  * - **Repeatable**: `true`

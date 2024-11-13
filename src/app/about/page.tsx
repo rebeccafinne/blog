@@ -29,9 +29,11 @@ export default async function Index() {
   // Fetch the content of the home page from Prismic
   const about = await client.getByUID('page', 'about');
 
+  const navigation = await client.getSingle('navigation');
+
   return (
     <>
-      <Navigation client={client} />
+      <Navigation navigation={navigation} />
 
       <SliceZone slices={about.data.slices} components={components} />
     </>

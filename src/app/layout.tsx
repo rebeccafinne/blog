@@ -20,7 +20,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col items-center bg-stone-50">
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen w-screen flex flex-col items-center	">
           <div className="bg-white max-w-7xl border-x border-solid border-gray-200 px-12 w-full flex flex-col flex-1 gap-8 items-center text-slate-700">
             <Toaster />
             {children}

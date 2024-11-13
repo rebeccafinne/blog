@@ -30,8 +30,6 @@ export function Comments({ id, uid, comments }: Props) {
   const [nickname, setNickname] = useState('');
   const [loading, setLoading] = useState(false);
 
-  console.log(comments);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);

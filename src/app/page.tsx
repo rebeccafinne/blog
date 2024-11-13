@@ -44,9 +44,11 @@ export default async function Index() {
     ],
   });
 
+  const navigation = await client.getSingle('navigation');
+
   return (
     <>
-      <Navigation client={client} />
+      <Navigation navigation={navigation} />
 
       <SliceZone slices={home.data.slices} components={components} />
       <Socials />
